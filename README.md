@@ -28,7 +28,7 @@ E para Gerenciar o Desenvolvimento do App, irei utilizar o Meistertask (Kanban).
 
 😊 O meu desafio no curso é aprender a utilizar o Slidy além de praticar Dart, Flutter Mobx, Flutter modular e melhorar meu conhecimento com Injeções de Dependência.
 
-## PRazo
+## Prazo
 
 ⚡ Este projeto foi finalizado no dia 29/07/2023!!! Agora irei dar sequência ao curso.
 
