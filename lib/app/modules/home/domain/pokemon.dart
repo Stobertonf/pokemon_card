@@ -57,7 +57,7 @@ class Pokemon {
 enum CardType { FAVORITE, PUBLIC, MY_CARD }
 
 class CardTypeHelper {
-  static fromString(String cardType) {
+  static CardType fromString(String cardType) {
     if (cardType == null) {
       return CardType.PUBLIC;
     }
