@@ -5,6 +5,7 @@ import 'package:pokemon_card/app/modules/home/pokemon_repository.dart';
 
 part 'home_controller.g.dart';
 
+@Injectable()
 class HomeController = _HomeControllerBase with _$HomeController;
 
 abstract class _HomeControllerBase with Store {

@@ -1,15 +1,28 @@
-import 'package:flutter/material.dart';
-import 'package:pokemon_card/app/app_widget.dart';
+import 'package:dio/io.dart';
+
+import 'home_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:pokemon_card/app/modules/home/home_page.dart';
-import 'package:pokemon_card/app/shared/constants/routes.dart';
-import 'package:pokemon_card/app/modules/home/home_module.dart';
+import 'package:pokemon_card/app/modules/home/home_controller.dart';
+import 'package:pokemon_card/app/modules/home/pokemon_repository.dart';
 
 class HomeModule extends Module {
-  List<ModularRoute> get routers => [
+  @override
+  List<Bind> get binds => [
+        Bind.singleton(
+          (i) => PokemonRepository(
+            i.get<DioForNative>(),
+          ),
+        ),
+        Bind.singleton(
+          (i) => HomeController(),
+        ),
+      ];
+
+  @override
+  List<ModularRoute> get routes => [
         ChildRoute(
-          Routes.home,
-          child: (_) => const HomePage(),
+          Modular.initialRoute,
+          child: (_, args) => HomePage(),
         ),
       ];
 }

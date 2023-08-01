@@ -31,9 +31,9 @@ dependencies:
   mobx_codegen: ^2.3.0
   build_runner: ^2.4.6
   flutter_mobx: ^2.0.6+5
+  flutter_modular: ^5.0.3
   cupertino_icons: ^1.0.2
   shared_preferences: ^2.2.0
-  flutter_modular: ^6.0.0-rc.1
 
 dev_dependencies:
   flutter_test:

@@ -1,55 +1,52 @@
-import 'home_store.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_modular/flutter_modular.dart';
-import 'package:pokemon_card/app/modules/home/detail_page.dart';
-import 'package:pokemon_card/app/modules/home/domain/pokemon.dart';
+import 'package:pokemon_card/app/modules/home/all_cards_page.dart';
+import 'package:pokemon_card/app/modules/home/home_controller.dart';
+import 'package:pokemon_card/app/modules/home/my_cards_page.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _currentIndex = 0;
+
+  List<Widget> paginas = [
+    AllCardsPage(),
+    Container(),
+    MyCardsPage(),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    List<Pokemon> pokemons = [];
     return Scaffold(
-      body: GridView.count(
-        childAspectRatio: 0.72,
-        crossAxisCount: 2,
-        children: List.generate(
-          pokemons.length,
-          (index) {
-            var pokemon = pokemons[index];
-            return GestureDetector(
-              onTap: () => abrirTelaDetalhar(
-                context,
-                pokemon,
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(
-                  bottom: 5.0,
-                ),
-                child: Hero(
-                  tag: pokemon.uniqueId,
-                  child: Image.network(pokemon.imageUrl),
-                ),
-              ),
-            );
-          },
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _currentIndex,
+          onTap: (index) => trocarPagina(index),
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.all_inclusive),
+              label: 'cads',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.favorite),
+              label: 'favoritos',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'obtidos',
+            ),
+          ],
         ),
-      ),
-    );
+        body: IndexedStack(
+          index: _currentIndex,
+          children: paginas,
+        ));
   }
 
-  abrirTelaDetalhar(BuildContext context, Pokemon pokemon) {
-    Navigator.of(context).push(
-      PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) {
-          return PageDetail(
-            pokemon: pokemon,
-            key: ValueKey(pokemon.name),
-          );
-        },
-      ),
-    );
+  trocarPagina(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
   }
 }
