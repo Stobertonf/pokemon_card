@@ -17,6 +17,7 @@ scripts:
     mobx_build_clean: $clean & $get & $runner build --delete-conflicting-outputs
 
 environment:
+  #sdk: ">=2.12.0 <3.0.0"
   sdk: '>=3.1.0-66.0.dev <4.0.0'
 
 
@@ -31,6 +32,7 @@ dependencies:
   build_runner: ^2.4.6
   flutter_mobx: ^2.0.6+5
   cupertino_icons: ^1.0.2
+  shared_preferences: ^2.2.0
   flutter_modular: ^6.0.0-rc.1
 
 dev_dependencies:
