@@ -7,10 +7,12 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Flutter Slidy',
+      title: 'Pokemon Card',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      // initialRoute: '/',
+      debugShowCheckedModeBanner: false,
       routerDelegate: Modular.routerDelegate,
       routeInformationParser: Modular.routeInformationParser,
     );
