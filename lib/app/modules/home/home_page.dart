@@ -2,10 +2,11 @@ import 'home_store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:pokemon_card/app/modules/home/detail_page.dart';
 import 'package:pokemon_card/app/modules/home/domain/pokemon.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +20,10 @@ class HomePage extends StatelessWidget {
           (index) {
             var pokemon = pokemons[index];
             return GestureDetector(
+              onTap: () => abrirTelaDetalhar(
+                context,
+                pokemon,
+              ),
               child: Padding(
                 padding: const EdgeInsets.only(
                   bottom: 5.0,
@@ -31,6 +36,19 @@ class HomePage extends StatelessWidget {
             );
           },
         ),
+      ),
+    );
+  }
+
+  abrirTelaDetalhar(BuildContext context, Pokemon pokemon) {
+    Navigator.of(context).push(
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) {
+          return PageDetail(
+            pokemon: pokemon,
+            key: ValueKey(pokemon.name),
+          );
+        },
       ),
     );
   }
