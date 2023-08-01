@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:pokemon_card/app/modules/home/domain/pokemon.dart';
 
+@Injectable()
 class PokemonRepository extends Disposable {
   static const OBTIDOS_KEY = "OBTIDOS_KEY";
   final DioForNative client;
