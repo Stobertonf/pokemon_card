@@ -30,8 +30,7 @@ E para Gerenciar o Desenvolvimento do App, irei utilizar o Meistertask (Kanban).
 
 ## Prazo
 
-⚡ Este projeto foi finalizado no dia 31/07/2023!!! Agora irei dar sequência ao curso.
-
+⚡ Este projeto foi finalizado no dia 31/07/2023!!!
 Imagens
 
 Neste eu não possuo imagens do projeto, no entanto, em breve irei disponibilizar.
